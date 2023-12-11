@@ -201,6 +201,11 @@ app.get('/estados', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+app.listen(port, async () => {
+  try {
+    await client.connect();
+    console.log(`Servidor rodando em http://localhost:${port}`);
+  } catch (error) {
+    console.error('Erro ao conectar ao banco de dados:', error);
+  }
 });

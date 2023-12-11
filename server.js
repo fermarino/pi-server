@@ -7,8 +7,6 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-client.connect();
-
 const client = new Client({
   host: process.env.DB_HOST,
   user: process.env.DB_DATABASE,
@@ -16,6 +14,9 @@ const client = new Client({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
 });
+
+client.connect();
+
 
 app.use(express.static(path.join(__dirname)));
 app.get('/', (req, res) => {

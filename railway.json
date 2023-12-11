@@ -1,0 +1,14 @@
+{
+  "version": "2",
+  "services": {
+    "db": {
+      "image": "postgres",
+      "env": {
+        "DB_PASSWORD": "elwOtmmnDnH1QmHRG5NxPmf14wDag8ku",
+        "DB_DATABASE": "rchaewtw",
+        "DB_HOST": "isabelle.db.elephantsql.com",
+        "DB_PORT": 5432
+      }
+    }
+  }
+}

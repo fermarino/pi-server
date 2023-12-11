@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const { Client } = require('pg');
 
@@ -8,12 +7,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+client.connect();
 
 const client = new Client({
   host: process.env.DB_HOST,
@@ -22,8 +16,6 @@ const client = new Client({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
 });
-
-client.connect();
 
 app.use(express.static(path.join(__dirname)));
 app.get('/', (req, res) => {

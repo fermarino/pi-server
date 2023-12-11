@@ -1,8 +1,8 @@
 {
   "version": 2,
   "builds": [{
-    "src":"./server.js",
-    "user":"@vercel/node"
+    "src": "./server.js",
+    "use": "@now/node"
   }],
   "routes": [
     {
